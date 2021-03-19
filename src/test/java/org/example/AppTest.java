@@ -71,4 +71,42 @@ public class AppTest
     public void saveStudent_fail_invalid_student_name(){
         System.out.println("YAY");
     }
+
+    @Test
+    public void saveStudent_fail_unique_id(){
+        // add valid student
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, validStudentName, validGroup));
+        assertEquals(0, service.saveStudent(validId, validStudentName,validGroup));
+    }
+
+    @Test
+    public void saveStudent_invalid_name1(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, invalidStudentNameEmpty, validGroup));
+    }
+
+    @Test
+    public void saveStudent_invalid_name2(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, null, validGroup));
+    }
+
+    @Test
+    public void saveStudent_invalid_group1(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, validStudentName, invalidGroupLower));
+    }
+
+    @Test
+    public void saveStudent_invalid_group2(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, validStudentName, invalidGroupUpper));
+    }
+
 }
