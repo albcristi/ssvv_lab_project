@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.domain.*;
 import org.example.repository.*;
+import org.example.validation.ValidationException;
 
 import java.time.LocalDate;
 import java.time.temporal.WeekFields;
@@ -26,12 +27,18 @@ public class Service {
 
     public int saveStudent(String id, String nume, int grupa) {
         Student student = new Student(id, nume, grupa);
-        Student result = studentXmlRepo.save(student);
+        // new approach: use try/catch
+        try {
+            Student result = studentXmlRepo.save(student);
 
-        if (result == null) {
-            return 1;
+            if (result == null) {
+                return 1;
+            }
+            return 0;
         }
-        return 0;
+        catch (ValidationException e){
+            return 0;
+        }
     }
 
     public int saveTema(String id, String descriere, int deadline, int startline) {
