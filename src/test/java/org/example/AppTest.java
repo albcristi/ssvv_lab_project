@@ -164,7 +164,7 @@ public class AppTest
     public void saveStudent_name_bva2(){
         if(studentXMLRepository.findOne(validId) != null)
             studentXMLRepository.delete(validId);
-        assertEquals(1, service.saveStudent(validId, "a", 938));
+        assertEquals(1, service.saveStudent(validId, "a", validGroup));
     }
 
 }

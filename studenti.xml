@@ -20,6 +20,10 @@
         <Nume>Ion</Nume>
         <Grupa>227</Grupa>
     </student>
+    <student ID="some valid id">
+        <Nume>a</Nume>
+        <Grupa>900</Grupa>
+    </student>
     <student ID="18a">
         <Nume>miro</Nume>
         <Grupa>931</Grupa>
