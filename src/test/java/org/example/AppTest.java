@@ -33,6 +33,7 @@ public class AppTest
     private Integer invalidGroupUpper;
     private Integer invalidGroupLower;
 
+
     @Before
     public void beforeTest(){
         Validator<Student> studentValidator = new StudentValidator();
@@ -50,8 +51,8 @@ public class AppTest
         validStudentName = "some name";
         invalidStudentNameEmpty = "";
         validGroup = 900;
-        invalidGroupLower = 109;
-        invalidGroupUpper = 939;
+        invalidGroupLower = 100;
+        invalidGroupUpper = 1000;
     }
 
     @Test
@@ -64,12 +65,11 @@ public class AppTest
     @Test
     public void saveStudent_fail_invalid_student_id(){
         assertEquals(0,  service.saveStudent(invalidIdString, validStudentName,validGroup));
-        assertEquals(0, service.saveStudent(null, validStudentName, validGroup));
     }
 
     @Test
     public void saveStudent_fail_invalid_student_name(){
-        System.out.println("YAY");
+        assertEquals(0, service.saveStudent(null, validStudentName, validGroup));
     }
 
     @Test
@@ -107,6 +107,64 @@ public class AppTest
         if(studentXMLRepository.findOne(validId) != null)
             studentXMLRepository.delete(validId);
         assertEquals(0, service.saveStudent(validId, validStudentName, invalidGroupUpper));
+    }
+
+    // BVA
+
+    @Test
+    public void saveStudent_group_bva1(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, validStudentName, 110));
+    }
+
+    @Test
+    public void saveStudent_group_bva2(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, validStudentName, 111));
+    }
+
+    @Test
+    public void saveStudent_group_bva3(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, validStudentName, 112));
+    }
+
+    @Test
+    public void saveStudent_group_bva4(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, validStudentName, 936));
+    }
+
+    @Test
+    public void saveStudent_group_bva5(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, validStudentName, 937));
+    }
+
+    @Test
+    public void saveStudent_group_bva6(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(0, service.saveStudent(validId, validStudentName, 938));
+    }
+
+    @Test
+    public void saveStudent_id_bva2(){
+        if(studentXMLRepository.findOne("a") != null)
+            studentXMLRepository.delete("a");
+        assertEquals(1, service.saveStudent("a", validStudentName, validGroup));
+    }
+
+    @Test
+    public void saveStudent_name_bva2(){
+        if(studentXMLRepository.findOne(validId) != null)
+            studentXMLRepository.delete(validId);
+        assertEquals(1, service.saveStudent(validId, "a", 938));
     }
 
 }

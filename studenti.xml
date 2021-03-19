@@ -8,6 +8,10 @@
         <Nume>Garcea</Nume>
         <Grupa>221</Grupa>
     </student>
+    <student ID="a">
+        <Nume>some name</Nume>
+        <Grupa>900</Grupa>
+    </student>
     <student ID="2">
         <Nume>Maria</Nume>
         <Grupa>222</Grupa>
