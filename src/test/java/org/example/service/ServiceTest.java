@@ -61,4 +61,9 @@ public class ServiceTest {
         assertEquals(0,  service.saveStudent(invalidIdString, validStudentName,validGroup));
         assertEquals(0, service.saveStudent(null, validStudentName, validGroup));
     }
+
+    @Test
+    public void saveStudent_fail_invalid_student_name(){
+        System.out.println("YAY");
+    }
 }
