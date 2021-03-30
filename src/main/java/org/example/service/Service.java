@@ -44,7 +44,7 @@ public class Service {
     public int saveTema(String id, String descriere, int deadline, int startline) {
         Tema tema = new Tema(id, descriere, deadline, startline);
         Tema result = temaXmlRepo.save(tema);
-
+        System.out.println(result);
         if (result == null) {
             return 1;
         }
