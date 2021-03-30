@@ -11,7 +11,7 @@
         <Startline>7</Startline>
     </tema>
     <tema ID="super id">
-        <Descriere>nsdndn</Descriere>
+        <Descriere>super tema</Descriere>
         <Deadline>10</Deadline>
         <Startline>9</Startline>
     </tema>
@@ -19,5 +19,10 @@
         <Descriere>gui</Descriere>
         <Deadline>9</Deadline>
         <Startline>7</Startline>
+    </tema>
+    <tema ID="used id">
+        <Descriere>super tema</Descriere>
+        <Deadline>10</Deadline>
+        <Startline>9</Startline>
     </tema>
 </Entitati>
