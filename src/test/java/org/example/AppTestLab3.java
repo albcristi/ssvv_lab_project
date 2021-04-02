@@ -65,4 +65,27 @@ public class AppTestLab3 {
         assertEquals(0, service.saveTema(invalidIdString, description, deadlineGood, startLineGood));
     }
 
+    @Test
+    public void thirdTestWbt(){
+        if(fileRepository2.findOne(validId)!=null){
+            fileRepository2.delete(validId);
+        }
+        assertEquals(0, service.saveTema(validId, description, startLineGood, deadlineGood));
+    }
+
+    @Test
+    public void fourthTestWbt(){
+        if(fileRepository2.findOne(validId)!=null){
+            fileRepository2.delete(validId);
+        }
+        assertEquals(1, service.saveTema(validId, description, deadlineGood, deadlineGood));
+    }
+
+    @Test
+    public void fifthTestWbt(){
+        if(fileRepository2.findOne(validId)!=null){
+            fileRepository2.delete(validId);
+        }
+        assertEquals(1, service.saveTema(validId, null, deadlineGood, deadlineGood));
+    }
 }
