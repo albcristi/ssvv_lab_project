@@ -88,4 +88,9 @@ public class AppTestLab3 {
         }
         assertEquals(1, service.saveTema(validId, null, deadlineGood, deadlineGood));
     }
+
+    @Test
+    public void sixthTestWbt(){
+        assertEquals(0, service.saveTema("", description, deadlineGood, deadlineGood));
+    }
 }
