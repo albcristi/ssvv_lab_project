@@ -43,7 +43,14 @@ public class Service {
 
     public int saveTema(String id, String descriere, int deadline, int startline) { // 1
         Tema tema = new Tema(id, descriere, deadline, startline); // 2
-        Tema result = temaXmlRepo.save(tema); // 2
+        // NEW APPROACH
+        Tema result = null;
+        try {
+            result = temaXmlRepo.save(tema); // 2
+        }
+        catch (Exception e){
+            return 0;
+        }
 
         if (result == null) { // 3
             return 1; // 4

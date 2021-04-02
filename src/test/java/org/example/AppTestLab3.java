@@ -86,7 +86,7 @@ public class AppTestLab3 {
         if(fileRepository2.findOne(validId)!=null){
             fileRepository2.delete(validId);
         }
-        assertEquals(1, service.saveTema(validId, null, deadlineGood, deadlineGood));
+        assertEquals(0, service.saveTema(validId, null, deadlineGood, deadlineGood));
     }
 
     @Test
