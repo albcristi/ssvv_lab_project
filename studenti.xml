@@ -28,4 +28,8 @@
         <Nume>miro</Nume>
         <Grupa>931</Grupa>
     </student>
+    <student ID="student valid id for test">
+        <Nume>test student name</Nume>
+        <Grupa>921</Grupa>
+    </student>
 </Entitati>

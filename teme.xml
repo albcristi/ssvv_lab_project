@@ -20,4 +20,9 @@
         <Deadline>10</Deadline>
         <Startline>9</Startline>
     </tema>
+    <tema ID="assignment valid id for test">
+        <Descriere>test big bang assignment</Descriere>
+        <Deadline>10</Deadline>
+        <Startline>5</Startline>
+    </tema>
 </Entitati>
