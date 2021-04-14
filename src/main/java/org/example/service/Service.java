@@ -59,8 +59,10 @@ public class Service {
     } // 6
 
     public int saveNota(String idStudent, String idTema, double valNota, int predata, String feedback) {
+        if(idStudent == null || idTema == null)
+            return 0; //new modifications
         if (studentXmlRepo.findOne(idStudent) == null || temaXmlRepo.findOne(idTema) == null) {
-            return -1;
+            return 0; // error: return -1
         }
         else {
             int deadline = temaXmlRepo.findOne(idTema).getDeadline();
