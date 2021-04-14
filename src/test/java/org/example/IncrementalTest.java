@@ -82,7 +82,7 @@ public class IncrementalTest {
     // Test Add Grade Incremental (add student + add assignment + add grade)
     @Test
     public void addGradeIncremental(){
-        try{
+//        try{
             if(studentXMLRepository.findOne(validStudentId)!=null)
                 studentXMLRepository.delete(validStudentId);
             assertEquals(1, service.saveStudent(validStudentId, validStudentName, validStudentGroup));
@@ -94,9 +94,9 @@ public class IncrementalTest {
                 notaXMLRepository.delete(new Pair<>(validStudentId, validAssignmentId));
             assertEquals(1, service.saveNota(validStudentId, validAssignmentId, 10,
                     getValidAssignmentStartLine, "no bravo baiatu :))"));
-        }
-        catch (Exception e){
-            assert false;
-        }
+//        }
+//        catch (Exception e){
+//            assert false;
+//        }
     }
 }
